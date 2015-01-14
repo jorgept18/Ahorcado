@@ -22,6 +22,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     private void chequeaBoton(JButton botonPulsado)
     {
         botonPulsado.setVisible(false);
+        
       //  String letra = botonPulsado.getText();
     }
     /**
