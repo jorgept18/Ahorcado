@@ -12,20 +12,37 @@ import javax.swing.JButton;
  */
 public class VentanaAhorcado extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaAhorcado
-     */
+    //palabraOculta en el futuro la pondré con un random
+    String palabraOculta = "CETYS";
+    
+    //contador para el número de fallos
+    int numeroFallos = 0;
+    
     public VentanaAhorcado() {
         initComponents();
     }
-
-    private void chequeaBoton(JButton botonPulsado)
-    {
+    
+    //este método recibe la letra que aparece en el botón que ha sido pulsado
+    private void chequeaLetra(String letra){
+        //guardo el texto de la pantalla en un string auxiliar
+        String palabraConGuiones = jLabel1.getText();
+        
+        if (palabraOculta.contains(letra)){ //la letra está en la palabra oculta
+            //desocultar la letra en la pantalla y quitar el guión bajo
+        }
+        else{ //la letra NO está en la palabra oculta
+            numeroFallos++;
+            jLabel2.setText(String.valueOf(numeroFallos));
+            
+        }
+    }
+    
+    //recibe el botón que ha sido pulsado
+    private void chequeaBoton(JButton botonPulsado) {
         botonPulsado.setVisible(false);
+        chequeaLetra (botonPulsado.getText());
         
         
-        
-      //  String letra = botonPulsado.getText();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,6 +82,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
         jButton25 = new javax.swing.JButton();
         jButton29 = new javax.swing.JButton();
         jButton31 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,7 +90,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("_ _ _ _ _");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 468, 80));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 468, 80));
 
         jButton1.setText("A");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -308,6 +326,10 @@ public class VentanaAhorcado extends javax.swing.JFrame {
         });
         getContentPane().add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 560, 50, 50));
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("0");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 30, 20));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -488,6 +510,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
